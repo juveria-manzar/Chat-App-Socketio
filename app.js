@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const dateTime = require("simple-datetime-formater");
 const bodyParser = require("body-parser");
-// const chatRouter = require("./route/chatroute");
+const chatRouter = require("./route/chatroute");
 // const loginRouter = require("./route/loginRoute");
 
 //require the http module
@@ -18,7 +18,7 @@ const port = 5000;
 app.use(bodyParser.json());
 
 //routes
-// app.use("/chats", chatRouter);
+app.use("/chats", chatRouter);
 // app.use("/login", loginRouter);
 
 //set the express.static middleware

@@ -1,5 +1,5 @@
 var socket = io();
-// var messages = document.getElementById()
+var messages = document.getElementById('messages')
 
 
 //self executing code initializes socket.io on the client side and emits message typed in input box.
@@ -7,9 +7,12 @@ var socket = io();
     $("#form").submit(function(e) {
         e.preventDefault(); // prevents page reloading
         socket.emit("chat message", $("#message").val());
-        $("#message").val("");
-        console.log('hello')
-        return true;
+        messages.appendChild(li).append($("#message").val())
+        let span=document.createElement('span')
+        messages.appendChild(span).append('by'+"Anonymous"+":"+"just now")
+        $(“#message”).val(“”);
+        return false;
+        
     });
 })()
 
