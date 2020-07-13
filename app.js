@@ -1,70 +1,72 @@
-const express = require('express')
+//require the express module
+const express = require("express");
 const app = express();
-const dateTime = require('simple-datetime-formater')
-const bodyParser = require('body-parser')
-const chatRouter = require('./route/chatroute')
+const dateTime = require("simple-datetime-formater");
+const bodyParser = require("body-parser");
+// const chatRouter = require("./route/chatroute");
+// const loginRouter = require("./route/loginRoute");
 
+//require the http module
+const http = require("http").Server(app);
 
-//http module
-const http = require('http').Server(app)
+// require the socket.io module
+const io = require("socket.io");
 
-//socketio module for realtime-web app
-const io = require('socket.io');
-
-const port = 3000;
+const port = 5000;
 
 //bodyparser middleware
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 //routes
-// app.use('/chats', chatRouter)
-// app.use('/login', loginRouter)
+// app.use("/chats", chatRouter);
+// app.use("/login", loginRouter);
 
-//express static middleware
-app.use(express.static(__dirname + "/public"))
+//set the express.static middleware
+app.use(express.static(__dirname + "/public"));
 
 //integrating socketio
-socket = io(http)
+socket = io(http);
 
 //database connection
-// const Chat = require('./models/Chat')
-// const connect = require('./dbconnect')
+// const Chat = require("./models/Chat");
+// const connect = require("./dbconnect");
 
 //setup event listener
-socket.on('connection', socket => {
-    console.log('user connected')
+socket.on("connection", socket => {
+    console.log("user connected");
 
-    socket.on('disconnect', () => {
-        console.log('user disconnected')
-    })
-})
+    socket.on("disconnect", function() {
+        console.log("user disconnected");
+    });
 
-//typing
-socket.on('typing', data => {
-    socket.broadcast.emit('notifyingTyping', {
-        user: data.user,
-        message: data.message
-    })
-})
+    //Someone is typing
+    socket.on("typing", data => {
+        socket.broadcast.emit("notifyTyping", {
+            user: data.user,
+            message: data.message
+        });
+    });
 
-//stopped typing
-socket.on('stopTyping', () => {
-    socket.broadcast.emit("notifyStopTyping");
-})
+    //when soemone stops typing
+    socket.on("stopTyping", () => {
+        socket.broadcast.emit("notifyStopTyping");
+    });
 
-socket.on('chat message', (msg) => {
-    console.log('message: ' + msg)
+    socket.on("chat message", function(msg) {
+        console.log("message: " + msg);
 
+        //broadcast message to everyone in port:5000 except yourself.
+        socket.broadcast.emit("received", { message: msg });
 
+        //save chat to the database
+        // connect.then(db => {
+        //   console.log("connected correctly to the server");
+        //   let chatMessage = new Chat({ message: msg, sender: "Anonymous" });
 
-
-    //broadcast message in port:300 except yourself
-    socket.broadcast.emit("received", { message: msg });
-})
-
-
-
-
+        //   chatMessage.save();
+        // });
+    });
+});
 
 http.listen(port, () => {
     console.log("Running on Port: " + port);
