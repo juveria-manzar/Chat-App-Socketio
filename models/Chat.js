@@ -11,9 +11,9 @@ const chatSchema=new Schema(
         }
     },
     {
-        timestamp:true
+        timestamps:true
     }
 );
 
-let Chat=mongoose.model('ChatHistory',chatSchema)
+let Chat=mongoose.model('theChat',chatSchema)
 module.exports=Chat;
