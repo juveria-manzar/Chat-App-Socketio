@@ -2,9 +2,9 @@
 
 ## Introduction
 
-> This is anonymous chat app is built using Nodejs, Express, and Socket.io and MongoDB.
+> This is an anonymous chat app built using Nodejs, Express, and Socket.io and MongoDB.
 
-Here is a screenshot of it looks and functionality.
+Here is a screenshot of how it's looks and it's functionality.
 
 ![alt text](https://github.com/juveria-manzar/RealTime-Chat-App-Socketio/blob/master/screenshots/chatscreenshot.gif "Chat Screen Shot")
 
