@@ -6,9 +6,7 @@
 
 Here is a screenshot of how it's looks and it's functionality.
 
-![alt text](https://github.com/juveria-manzar/RealTime-Chat-App-Socketio/blob/master/screenshots/chatscreenshot.gif "Chat Screen Shot")
-
-```
+![alt text](https://github.com/juveria-manzar/RealTime-Chat-App-Socketio/blob/master/screenshots/readme-img.gif "Chat Screen Shot")
 
 ## Installation
 
@@ -27,7 +25,7 @@ npm start
 
 goto your browser
 
-and visit localhost:5000 and start chatting.
+and visit localhost:3000 and start chatting.
 
 Note:
 
