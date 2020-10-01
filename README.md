@@ -29,4 +29,4 @@ and visit localhost:3000 and start chatting.
 
 Note:
 
-You should have mongoDB installed and started for this application to work correctly.
+> You should have mongoDB installed and started for this application to work correctly.
