@@ -14,7 +14,6 @@ Here is a screenshot of how it's looks and it's functionality.
 
 ```bash
 npm install
-
 ```
 
 Then run:
