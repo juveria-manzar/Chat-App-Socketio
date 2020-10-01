@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> This is an anonymous chat app built using Nodejs, Express, and Socket.io and MongoDB.
+> This is an anonymous chat app built using Nodejs, Express and Socket.io and MongoDB.
 
 Here is a screenshot of how it's looks and it's functionality.
 
