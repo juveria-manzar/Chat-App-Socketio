@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> This is an anonymous chat app built using Nodejs, Express, and Socket.io and MongoDB.
+> This is an anonymous chat app built using Nodejs, Express and Socket.io and MongoDB.
 
 Here is a screenshot of how it's looks and it's functionality.
 
@@ -14,7 +14,6 @@ Here is a screenshot of how it's looks and it's functionality.
 
 ```bash
 npm install
-
 ```
 
 Then run:
@@ -23,10 +22,6 @@ Then run:
 npm start
 ```
 
-goto your browser
+goto your browser and visit localhost:3000 and start chatting.
 
-and visit localhost:3000 and start chatting.
 
-Note:
-
-You should have mongoDB installed and started for this application to work correctly.
